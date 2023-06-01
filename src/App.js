@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/share/layout';
+import Calculator from './components/pages/calculator';
+import ListProduct from './components/pages/listProduct';
+import DataObject from './components/pages/dataObject';
+import Fotter from './components/share/fotter';
+import Header from './components/share/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Router>
+        <Routes>
+        <Route path='/' element={<Layout/>}>
+
+        <Route path='/calculator' element={<Calculator />} />
+          <Route path='/listproduct' element={<ListProduct />} />
+          <Route path='/dataobject' element={<DataObject />} />
+        </Route>
+
+        </Routes>
+      </Router>
     </div>
   );
 }
